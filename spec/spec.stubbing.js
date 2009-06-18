@@ -43,4 +43,23 @@ describe "JSocka(object)"
       Apple.getType().should_equal "A Fruit"
     end
   end
+  describe ".expects(method)"
+    describe ".returns(method)"
+      it "should modify a class function"
+        JSocka("Apple").expects("getType").returns("function(){return 'A Vegetable'}") 
+        Apple.getType().should_equal "A Vegetable"
+        JSocka.check_expectations()
+      end
+      it "should not affect an instance method of the same name"
+
+      end
+    end
+    describe ".never()"
+      it "should throw an error if the stubbed method is called"
+        JSocka("Apple").expects("getType").never()
+        Apple.getType() 
+        -{JSocka.check_expectations()}.should_throw_error
+      end
+    end
+  end
 end

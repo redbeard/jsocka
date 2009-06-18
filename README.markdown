@@ -17,14 +17,19 @@ Here are some usage examples
 	// p = Person.new
 	// p.speak() now calls the stubbed function
 
+        JSocka("Person").expects("speak");
+
+        JSocka("Person").expects("speak").never();
+
+        JSocka("Person").expects("speak").returns("function(){alert('I love stubbing')});
+
 	JSocka.destub();
 	// This clears out all existing stubs, and resets the original functions
 
 On the Horizon
 --------------
-* Implementing "expects"
+* Finishing implementation for "expects"
 * Creating matchers for JSpec to allow `Person.stubs("speak").returns("function(){}")`
-* Trying to brainstorm a way to allow expectations with parameters
 
 Comments & Suggestions
 ----------------------
