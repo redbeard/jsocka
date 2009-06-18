@@ -11,11 +11,11 @@ In order to start using JSocka, all you need to do is include the `lib/jsocka.js
 Here are some usage examples
 
 	JSocka("Person").stubs("speak").returns("function(){alert('I love stubbing')});
-	// Person.speak() now calls the stubbed function
+ // Person.speak() now calls the stubbed function
 
-	JSocka("Person").any_instance.stubs("speak").returns("function(){alert('I love stubbing')});
-	// p = Person.new
-	// p.speak() now calls the stubbed function
+  JSocka("Person").any_instance.stubs("speak").returns("function(){alert('I love stubbing')});
+   // p = Person.new
+    // p.speak() now calls the stubbed function
 
     JSocka("Person").expects("speak");
 
