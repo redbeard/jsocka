@@ -17,11 +17,11 @@ Here are some usage examples
 	// p = Person.new
 	// p.speak() now calls the stubbed function
 
-        JSocka("Person").expects("speak");
+    JSocka("Person").expects("speak");
 
-        JSocka("Person").expects("speak").never();
+     JSocka("Person").expects("speak").never();
 
-        JSocka("Person").expects("speak").returns("function(){alert('I love stubbing')});
+      JSocka("Person").expects("speak").returns("function(){alert('I love stubbing')});
 
 	JSocka.destub();
 	// This clears out all existing stubs, and resets the original functions
