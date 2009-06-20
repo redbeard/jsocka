@@ -23,8 +23,19 @@ Here are some usage examples
 
     JSocka("Person").expects("speak").returns("function(){alert('I love stubbing')});
 
+    JSocka("Person").expects("speak").with("Dignity").returns("function(){alert('I am the very model of a modern major general.')})
+
     JSocka.destub();
     // This clears out all existing stubs, and resets the original functions
+
+Usage Notes
+-----------
+While the JSocka framework does its best ro replicate Mocha syntax, there are a few noticable discrepancies. For example, using `JSocka("Person").stubs()` rather than `Person.stubs()`. Perhaps the most important of these to note is that the last item called on any stubbing chain must be called as a function. `JSocka("Person").expects("speak").once.returns("function(){alert('I love stubbing')})` is perfectly valid syntax. However, `JSocka("Person").expects("speak").never` is not. The full stubbing mechanism doesn't take place until your mechanism is fully formed, so make sure the final statement ends with parenthesis, i.e. `JSocka("Person").expects("speak").never()`
+
+Recently Added (Read: Tested, but not thoroughly) Features
+----------------------------------------------------------
+* Times conditions on expectations
+* With conditions on expectations
 
 On the Horizon
 --------------
