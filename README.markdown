@@ -30,7 +30,9 @@ Here are some usage examples
 
 Usage Notes
 -----------
-While the JSocka framework does its best ro replicate Mocha syntax, there are a few noticable discrepancies. For example, using `JSocka("Person").stubs()` rather than `Person.stubs()`. Perhaps the most important of these to note is that the last item called on any stubbing chain must be called as a function. `JSocka("Person").expects("speak").once.returns("function(){alert('I love stubbing')})` is perfectly valid syntax. However, `JSocka("Person").expects("speak").never` is not. The full stubbing mechanism doesn't take place until your mechanism is fully formed, so make sure the final statement ends with parenthesis, i.e. `JSocka("Person").expects("speak").never()`
+Please note that every JSocka method is a function, not a parameter. While Mocha does support some syntax like `Person.expects(method).once`, there's not a way to implement this in Javascript. Everything needs parentheses!
+
+Expectations are destructive (Adding hook code with chaining doesn't work for base classes). Be aware that `JSocka("Person").expects("speak")` will keep track of how many times the `Person.speak` method is called, but `Person.speak` will not return anything unless you explicitly define it, i.e. `JSocka("Person").expects("speak").returns("function(){ // code}")`
 
 Recently Added (Read: Tested, but not thoroughly) Features
 ----------------------------------------------------------
