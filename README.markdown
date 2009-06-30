@@ -43,6 +43,8 @@ On the Horizon
 --------------
 * Finishing implementation for "expects"
 * Creating matchers for JSpec to allow `Person.stubs("speak").returns("function(){}")`
+* Removing `function(){}` dependencies for `returns()`
+* Parsing properties vs. functions
 
 Comments & Suggestions
 ----------------------
