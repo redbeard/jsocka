@@ -48,19 +48,18 @@ describe "JSocka(object)"
       it "should not fail when passed the expected parameter"
         JSocka("Apple").expects("getType").with("Cake")
         Apple.getType("Cake")
-        JSocka.checkExpectations().should_equal true
+        JSocka.errors.should.be_empty
       end
       it "should throw an error when passed an incorrect parameter"
         JSocka("Apple").expects("getType").with("Cake")
         Apple.getType("Carrots")
-        -{JSocka.checkExpectations()}.should_throw_error
+        JSocka.errors().should.include "Apple.getType(Cake) was expected, but not called."
       end
     end
     describe ".returns(method)"
       it "should modify a class function"
         JSocka("Apple").expects("getType").returns("function(){return 'A Vegetable'}") 
         Apple.getType().should_equal "A Vegetable"
-        JSocka.checkExpectations()
       end
       it "should not affect an instance method of the same name"
 
