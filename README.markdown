@@ -30,19 +30,30 @@ Here are some usage examples
 
 Usage Notes
 -----------
-Please note that every JSocka method is a function, not a parameter. While Mocha does support some syntax like `Person.expects(method).once`, there's not a way to implement this in Javascript. Everything needs parentheses!
+Please note that every JSocka method is a function, not a parameter. While Mocha does support some syntax like `Person.expects(method).once`, there's not a way to implement this in Javascript. Everything needs parentheses! The only exception to this is when using `JSocka("Object").any_instance.stubs()`
 
 Expectations are destructive (Adding hook code with chaining doesn't work for base classes). Be aware that `JSocka("Person").expects("speak")` will keep track of how many times the `Person.speak` method is called, but `Person.speak` will not return anything unless you explicitly define it, i.e. `JSocka("Person").expects("speak").returns("function(){ // code}")`
 
-Recently Added (Read: Tested, but not thoroughly) Features
-----------------------------------------------------------
+JSpec Integration
+-----------------
+The `modules/jspec.jsocka.js` file is a module that extends JSpec functionality. This includes
+* `Object.stubs` syntax, instead of `JSocka("Object").stubs`. This works with `expects` and `any_instance` as well.
+* Automatic expectation-checking and destubbing after every spec. For example, the following spec will automatically fail:
+    describe "Example"
+      it "should fail"
+        Object.expects("my_method")
+      end
+    end
+JSpec will automatically hook into the errors collection and display them with the test. 
+
+Recently Added Features
+-----------------------
+* JSpec module integration
 * Times conditions on expectations
 * With conditions on expectations
 
 On the Horizon
 --------------
-* Finishing implementation for "expects"
-* Creating matchers for JSpec to allow `Person.stubs("speak").returns("function(){}")`
 * Removing `function(){}` dependencies for `returns()`
 * Parsing properties vs. functions
 

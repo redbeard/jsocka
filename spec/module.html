@@ -8,11 +8,11 @@
 
                 <script src="apple.js"></script>
                 <script src="../lib/jsocka.js"></script>
-		<!-- <script src="spec.grammar-less.js"></script> -->
+                <script src="../modules/jspec.jsocka.js"></script>
 		<script>
 			function runSuites() {
 				JSpec
-        .exec('spec.stubbing.js')
+        .exec('spec.module.js')
 				.run()
 				.report()
 			}
