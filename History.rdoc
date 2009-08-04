@@ -1,0 +1,9 @@
+=== 1.0.2 / 2009-08-04
+
+* Added History file
+
+=== 1.0.1 / 2009-08-04
+
+* Added JSpec module library
+* Renamed destub() to clearStubs() (warning: destub() has been completely removed due to JSpec interference)
+* Modified JSocka expectation-checking to return errors, rather than throw exceptions
