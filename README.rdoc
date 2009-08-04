@@ -26,7 +26,6 @@ Here are some usage examples
 
   JSocka("Person").expects("speak").returns("function(){alert('I love stubbing')});
 
-  JSocka("Person").expects("speak").with("Dignity").returns("function(){alert('I am the very model of a modern major general.')})    
   JSocka.clearStubs(); // This clears out all existing stubs, and resets the original functions
 
 == Usage Notes
@@ -42,19 +41,18 @@ The modules/jspec.jsocka.js file is a module that extends JSpec functionality. T
 * New Object.stubs syntax, instead of JSocka("Object").stubs. This works with expects and any_instance as well.
 * Automatic expectation-checking and destubbing after every spec. For example, the following spec will automatically fail:
 
-  describe "Example"
-    it "should fail"
-      Object.expects("my_method")
-    end
-  end
+   describe "Example"
+     it "should fail"
+       Object.expects("my_method")
+     end
+   end
 
 JSpec will automatically hook into the errors collection and display them with the test. 
 
 == Bugs & Feature Requests
 
 * Changes for each version noted in the History.rdoc file.
-
-* All bugs & features are managed using PivotalTracker, and can be viewed at http://www.pivotaltracker.com/projects/23917
+* All bugs & features are managed using PivotalTracker, and can be viewed at http://www.pivotaltracker.com/projects/24351
 
 == Comments & Suggestions
 
