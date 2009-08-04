@@ -41,11 +41,11 @@ The `modules/jspec.jsocka.js` file is a module that extends JSpec functionality.
 * New `Object.stubs` syntax, instead of `JSocka("Object").stubs`. This works with `expects` and `any_instance` as well.
 * Automatic expectation-checking and destubbing after every spec. For example, the following spec will automatically fail:
 
-    describe "Example"
-      it "should fail"
-        Object.expects("my_method")
-      end
-    end
+        describe "Example"
+          it "should fail"
+            Object.expects("my_method")
+          end
+        end
 
 JSpec will automatically hook into the errors collection and display them with the test. 
 
